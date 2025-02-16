@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Design Discovery Form</title>
+    <style>
+        body { font-family: Karla, sans-serif; max-width: 600px; margin: auto; padding: 20px; }
+        h1 {font-family: Jost, sans-serif; max-width: 600px; margin: auto; padding: 20px 0; }
+        label { font-weight: bold; display: block; margin-top: 25px; }
+        input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; }
+        .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Aligns everything vertically */
+    gap: 10px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center; /* Ensures the text aligns with checkboxes */
+    gap: 8px;
+    font-weight: normal;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin: 0; /* Remove any extra margin */
+    position: relative;
+    top: 30px; /* Adjust this value slightly if needed */
+}
+
+
+        button { background: #000000; color: #fff; border: none; padding: 15px 25px; cursor: pointer; margin-top: 15px; }
+        button:hover { background: #000000; }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lf0KtkqAAAAADe08z-xBkAEq3DpEGRd47UhXrK7"></script>
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Lf0KtkqAAAAADe08z-xBkAEq3DpEGRd47UhXrK7', { action: 'submit' }).then(function(token) {
+                document.getElementById('recaptchaResponse').value = token;
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Logo Design Discovery Form</h1>
+    <form id="logoForm" method="POST" action="send_email.php">
+        
+        <label>Business Name</label>
+        <input type="text" name="business_name" required>
+        
+        <label>Tagline (if any)</label>
+        <input type="text" name="tagline">
+        
+        <label>Describe Your Business & Industry</label>
+        <textarea name="business_description" rows="4"></textarea>
+        
+        <label>Core Values & Brand Personality</label>
+        <textarea name="brand_values" rows="3"></textarea>
+        
+        <label>Target Audience</label>
+        <textarea name="target_audience" rows="3"></textarea>
+        
+        <label>Preferred Logo Style (see guide at the bottom of the form)</label>
+        <div class="checkbox-group">
+            <input type="checkbox" name="logo_style[]" value="Wordmark"> Wordmark
+            <input type="checkbox" name="logo_style[]" value="Lettermark"> Lettermark
+            <input type="checkbox" name="logo_style[]" value="Pictorial"> Pictorial Mark
+            <input type="checkbox" name="logo_style[]" value="Abstract"> Abstract Mark
+            <input type="checkbox" name="logo_style[]" value="Mascot"> Mascot
+            <input type="checkbox" name="logo_style[]" value="Emblem"> Emblem
+        </div>
+        
+        <label>Color Preferences:</label>
+        <input type="text" name="color_preferences" placeholder="E.g., Blue, Black, Gold">
+        
+        <label>Colors to Avoid:</label>
+        <input type="text" name="color_avoid">
+        
+        <label>Font Preferences:</label>
+        <select name="font_preferences">
+            <option value="Serif">Serif</option>
+            <option value="Sans-serif">Sans-serif</option>
+            <option value="Script">Script</option>
+            <option value="Custom">Custom Lettering</option>
+        </select>
+        
+        <label>Where will the logo be used?</label>
+        <div class="checkbox-group">
+            <input type="checkbox" name="logo_usage[]" value="Website"> Website
+            <input type="checkbox" name="logo_usage[]" value="Business Cards"> Business Cards
+            <input type="checkbox" name="logo_usage[]" value="Social Media"> Social Media
+            <input type="checkbox" name="logo_usage[]" value="Merchandise"> Merchandise
+            <input type="checkbox" name="logo_usage[]" value="Signage"> Signage
+            <input type="checkbox" name="logo_usage[]" value="Packaging"> Packaging
+        </div>
+        
+        <label>Competitor Logos or Inspiration (Links or Uploads):</label>
+        <textarea name="competitor_logos" rows="3"></textarea>
+        
+        <label>Do you have any specific elements you want in the logo?</label>
+        <textarea name="specific_elements" rows="3"></textarea>
+        
+        <label>Deadline for Completion:</label>
+        <input type="date" name="deadline">
+        
+        <label>Budget Range:</label>
+        <input type="text" name="budget" placeholder="$500 - $2000">
+        
+        <input type="hidden" name="g-recaptcha-response" id="recaptchaResponse">
+        
+        <button type="submit">Submit</button>
+    </form>
+    <div style="line-height: 1.5em; margin-top: 20px; padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px;">
+    <h3>Logo Style Guide</h3>
+    <p><strong>Wordmark</strong> A logo that consists only of the brand name in a custom font (e.g., Google, Coca-Cola).</p>
+    <p><strong>Lettermark</strong> A logo made from the brand's initials, useful for long business names (e.g., IBM, HBO).</p>
+    <p><strong>Pictorial Mark</strong> A logo that features a recognizable icon or symbol (e.g., Apple, Twitter).</p>
+    <p><strong>Abstract Mark</strong> A unique geometric or abstract symbol that represents the brand (e.g., Nike Swoosh, Adidas).</p>
+    <p><strong>Mascot</strong> A logo that features a character or brand mascot (e.g., KFC’s Colonel Sanders, Pringles).</p>
+    <p><strong>Emblem</strong> A logo where text is inside a symbol, often looking like a badge (e.g., Harley-Davidson, Starbucks).</p>
+</div>
+
+</body>
+</html>
