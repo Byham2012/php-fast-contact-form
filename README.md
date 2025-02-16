@@ -12,7 +12,6 @@ This is a lightweight, fast-loading contact form built with PHP and Google reCAP
 ## Files Included
 - `index.php` → The form page
 - `send_email.php` → Handles form submission & sends email
-- `styles.css` → Optional styling for form layout
 - `thank-you.html` → Confirmation page after successful submission
 
 ## Setup Instructions
